@@ -13,15 +13,21 @@ public class Race {
 
         firstCompetitor = createCompetitor(engine, "Volvo,","red",40,8.5,4 );
 
+        System.out.println(firstCompetitor.toString());
+
         Engine secondengine = new Engine();
         secondengine.setManufacturer("Toyota");
 
         secondCompetitor = createCompetitor(secondengine, "Toyota", "black", 40, 10.5, 4);
+
+        System.out.println(secondCompetitor.toString());
+
     }
+
     // parameter contain car prefix just to demo they can have any name
-    private Car createCompetitor(Engine carEngine, String carName, String carColor,double carFuelLevel, double carMileage, int carDoorCount)
-    {
-        Car competitor = new Car (carEngine);
+    private Car createCompetitor(Engine carEngine, String carName, String carColor, double carFuelLevel, double carMileage, int carDoorCount) {
+
+        Car competitor = new Car(carEngine);
         competitor.setName(carName);
         competitor.setColor(carColor);
         competitor.setFuelLevel(carFuelLevel);
@@ -29,7 +35,7 @@ public class Race {
         competitor.setDoorCount(carDoorCount);
 
         return competitor;
-1    }
+    }
 
 
     public Track getTrack() {
