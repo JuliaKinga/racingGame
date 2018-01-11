@@ -7,11 +7,29 @@ public class Vehicle {
     private String name;
     private String color;
     private double currentSpeed;
+    private double traveledDistance;
+    private double mileage;
+    private double fuelLevel;
 
-    public double accelerate(double speed) {
+    public void accelerate(double speed) {
         System.out.println("Accelerate implementation from AutoVehicle.");
-        currentSpeed += speed;
-        return currentSpeed / 60;
+
+        double finalSpeed = getCurrentSpeed() + speed;
+        setCurrentSpeed(finalSpeed);
+
+        double traveledDistance = finalSpeed / 60;
+
+        double spentFuel = traveledDistance * mileage / 100;
+
+        double currentFuel = traveledDistance * mileage / 100;
+
+        fuelLevel -= spentFuel;
+
+        traveledDistance += currentSpeed / 60;
+//      same as
+//      fuelLevel = fuelLevel - spentFuel;
+
+           traveledDistance += currentSpeed / 60;
     }
 
     public double accelerate(double speed, double time) {
@@ -19,6 +37,22 @@ public class Vehicle {
 
     }
 
+
+    public double getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(double mileage) {
+        this.mileage = mileage;
+    }
+
+    public double getFuelLevel() {
+        return fuelLevel;
+    }
+
+    public void setFuelLevel(double fuelLevel) {
+        this.fuelLevel = fuelLevel;
+    }
     public String getName() {
         return name;
     }
@@ -43,6 +77,13 @@ public class Vehicle {
         this.currentSpeed = currentSpeed;
     }
 
+    public double getTraveledDistance() {
+        return traveledDistance;
+    }
+
+    public void setTraveledDistance(double traveledDistance) {
+        this.traveledDistance = traveledDistance;
+    }
     @Override
     public String toString() {
         return "Vehicle{" +
@@ -50,4 +91,5 @@ public class Vehicle {
                 ", color='" + color + '\'' +
                 '}';
     }
+
 }
